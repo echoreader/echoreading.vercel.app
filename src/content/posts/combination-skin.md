@@ -2,6 +2,14 @@
 title:  "Best Tips for Managing Combination Skin Naturally"
 slug: combination-skin
 description: "Best Tips for Managing Combination Skin Naturally"
+category:
+  - One
+tags:
+  - skin
+  - beauty
+pubDate: 2023-04-01
+cover: https://images.unsplash.com/photo-1515446870326-c532f9a8d954?w=1960&h=1102&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjN8fGJsYWNrfGVufDB8MHwwfHx8Mg%3D%3D
+coverAlt: Combination-Skin
 author: Echo Reader
 ---
 # How to Take Care of Combination Skin
