@@ -1,7 +1,6 @@
 ---
 title:  "ESG Data Management Software"
 description: "Streamline your ESG data management with our intuitive software. Track, analyze, and report sustainability metrics effortlessly. Start optimizing today!"
-slug: esg-data-management-software
 ---
 # ESG Data Management Software (And Why I Almost Gave Up Before I Started)
 
