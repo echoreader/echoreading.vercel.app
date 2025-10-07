@@ -1,5 +1,5 @@
 ---
-title:  "Best Tips for Managing Combination Skin Naturally"
+title:  Best Tips for Managing Combination Skin Naturally
 slug: combination-skin
 description: "Best Tips for Managing Combination Skin Naturally"
 category:
