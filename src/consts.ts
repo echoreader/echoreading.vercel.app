@@ -4,7 +4,7 @@
 // Base Page Metadata, src/layouts/BaseLayout.astro
 export const BRAND_NAME = "Echo Reader";
 export const SITE_TITLE = "Echo Reader";
-export const SITE_DESCRIPTION = "Echo Reader a passionate blog writer dedicated to sharing meaningful stories and perspectives across diverse niches";
+export const SITE_DESCRIPTION = "An Astro Theme for Visual Storytelling";
 
 // Tags Page Metadata, src/pages/tags/index.astro
 export const Tags_TITLE = "AstroVerse - All Tags";
@@ -28,12 +28,16 @@ export function getCategoryMetadata(category: string) {
 }
 
 // Header Links, src/components/Header.astro
-export const HeaderLinks = [
+/*export const HeaderLinks = [
   { href: "/category/One/1/", title: "One" },
   { href: "/category/Two/1/", title: "Two" },
   { href: "/category/Three/1/", title: "Three" },
+];*/
+export const HeaderLinks = [
+  { href: "/", title: "Home" },
+  { href: "/blog/", title: "Blog" },
+  { href: "/about/", title: "About" },
 ];
-
 // Footer Links, src/components/Footer.astro
 export const FooterLinks = [
   { href: "/posts/why-astro/", title: "Astro" },
