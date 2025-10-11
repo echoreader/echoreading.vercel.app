@@ -24,11 +24,10 @@ const { Content } = await post.render();
           <h1>{post.data.title}</h1>
         </div>
         <div>
-          {
-            post.data.cover && (
-              <OptimizedCover src={post.data.cover} alt={post.data.coverAlt} />
-            )
-          }
+          {post.data.cover && post.data.coverAlt && (
+  <OptimizedCover src={post.data.cover} alt={post.data.coverAlt} />
+)}
+
         </div>
         <div>
           <Content />
