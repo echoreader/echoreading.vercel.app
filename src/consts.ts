@@ -4,17 +4,17 @@
 // Base Page Metadata, src/layouts/BaseLayout.astro
 export const BRAND_NAME = "Echo Reader";
 export const SITE_TITLE = "Echo Reader";
-export const SITE_DESCRIPTION = "An Astro Theme for Visual Storytelling";
+export const SITE_DESCRIPTION = "Echo Reader, a dedicated Multi-Niche Writer and the curator of a vast, knowledge-driven blog network.";
 
 // Tags Page Metadata, src/pages/tags/index.astro
-export const Tags_TITLE = "AstroVerse - All Tags";
+export const Tags_TITLE = "Echo Reader - All Tags";
 export const Tags_DESCRIPTION =
-  "AstroVerse - All tags and the count of articles related to each tag";
+  "Echo Reader - All tags and the count of articles related to each tag";
 
 // Tags Page Metadata, src/pages/tags/[tag]/[page].astro
-export function getTagMetadata(tag: string) {
+export function getTagMetadata(tag: string = "unknown") {
   return {
-    title: `All articles on '${tag}' tag in AstroVerse`,
+    title: `All articles on '${tag}' tag in Echo Reader`,
     description: `Explore articles about ${tag} for different perspectives and in-depth analysis.`,
   };
 }
@@ -22,8 +22,8 @@ export function getTagMetadata(tag: string) {
 // Category Page Metadata, src/pages/category/[category]/[page].astro
 export function getCategoryMetadata(category: string) {
   return {
-    title: `All articles in '${category}' category in AstroVerse`,
-    description: `Browse all articles under the ${category} category in AstroVerse`,
+    title: `All articles in '${category}' category in Echo Reader`,
+    description: `Browse all articles under the ${category} category in Echo Reader`,
   };
 }
 
