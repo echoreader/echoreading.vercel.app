@@ -1,9 +1,8 @@
 ---
 title:  Best Tips for Managing Combination Skin Naturally
-slug: combination-skin
 description: "Best Tips for Managing Combination Skin Naturally"
 category:
-  - One
+  - beauty
 tags:
   - skin
   - beauty
