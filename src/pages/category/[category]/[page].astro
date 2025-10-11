@@ -38,7 +38,7 @@ export async function getStaticPaths() {
 
 const params = Astro.params;
 const { page } = Astro.props;
-const { title, description } = getCategoryMetadata(params.category);
+const { title, description } = getCategoryMetadata(params.category ?? "uncategorized");
 ---
 
 <BaseLayout title={title} description={description}>
