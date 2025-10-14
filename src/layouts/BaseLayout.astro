@@ -10,6 +10,7 @@ const { title, description } = Astro.props;
 <html lang="en">
   <head>
     <BaseHead title={title} description={description} />
+    <link rel="canonical" href={`https://echoreader.appwrite.network${Astro.url.pathname}`} />
     <link rel="sitemap" href="/sitemap-index.xml" />
   </head>
   <body
