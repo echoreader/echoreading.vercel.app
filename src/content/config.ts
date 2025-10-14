@@ -8,9 +8,9 @@ const posts = defineCollection({
     lastModified: z.string().optional(),
     cover: z.string().optional(),
     coverAlt: z.string().optional(),
-    category: z.array(z.string().optional()),
-    tags: z.array(z.string().optional()),
-    author: z.string(),
+    category: z.array(z.string()).optional(),
+    tags: z.array(z.string()).optional(),
+    author: z.string().optional(),
   }),
 });
 
