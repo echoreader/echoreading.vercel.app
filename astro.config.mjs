@@ -9,7 +9,7 @@ import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://echoreading.vercel.app/",
+  site: "https://echoreading.vercel.app",
   trailingSlash: "always",
   prefetch: {
     prefetchAll: true,
