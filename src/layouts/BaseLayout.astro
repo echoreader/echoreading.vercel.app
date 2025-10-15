@@ -10,8 +10,9 @@ const { title, description } = Astro.props;
 <html lang="en">
   <head>
     <BaseHead title={title} description={description} />
-    <link rel="canonical" href={`https://echoreader.appwrite.network${Astro.url.pathname}`} />
+    <link rel="canonical" href={`https://echoreader.vercel.app${Astro.url.pathname}`} />
     <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
   </head>
   <body
     class="flex flex-col min-h-screen mx-auto max-w-6xl px-4 dark:prose-invert sm:px-6 lg:px-8 dark:bg-neutral-900"
