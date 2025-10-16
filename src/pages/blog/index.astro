@@ -4,7 +4,12 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 import ArticleCard from "@components/ArticleCard.astro";
 
 const allPosts = await getCollection("posts");
-allPosts.sort((a, b) => new Date(b.data.pubDate) - new Date(a.data.pubDate));
+allPosts.sort((a, b) => {
+  const timeA = new Date(a.data.pubDate).getTime();
+  const timeB = new Date(b.data.pubDate).getTime();
+  return timeB - timeA;
+});
+
 
 const postsPerPage = 15;
 const firstPagePosts = allPosts.slice(0, postsPerPage);
