@@ -3,6 +3,8 @@ interface Props {
   title: string;
   description: string;
   image?: string;
+  type?: string;
+  url?: string;
 }
 import Schema from "@components/Schema.astro";
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
