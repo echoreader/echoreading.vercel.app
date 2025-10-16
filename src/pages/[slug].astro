@@ -40,11 +40,12 @@ const { Content } = await post.render();
   type={type}
   url={Astro.url.href}
   featuredImage={post.data.cover}
-  datePublished={post.data.pubDate}
+  datePublished={new Date(post.data.pubDate).toISOString()}
   dateModified={new Date().toISOString()}
   wordCount={post.data.wordCount || 500}
   articleBody={post.data.description}
 >
+
   <main>
     <article class="prose mx-auto dark:prose-invert">
       <div class="prose-h1 text-center">
