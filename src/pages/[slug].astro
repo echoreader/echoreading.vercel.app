@@ -32,6 +32,8 @@ const type = "blogPost";
 
 const post = Astro.props;
 const { Content } = await post.render();
+const safeWordCount = typeof (post.data as any).wordCount === "number" ? (post.data as any).wordCount : 500;
+
 ---
 
 <BaseLayout
@@ -42,7 +44,7 @@ const { Content } = await post.render();
   featuredImage={post.data.cover}
   datePublished={new Date(post.data.pubDate).toISOString()}
   dateModified={new Date().toISOString()}
-  wordCount={"wordCount" in post.data ? post.data.wordCount : 500}
+  wordCount={safeWordCount}
   articleBody={post.data.description}
 >
 
