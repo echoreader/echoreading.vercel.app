@@ -1,0 +1,130 @@
+---
+const {
+  title,
+  description,
+  url,
+  type,
+  featuredImage,
+  datePublished,
+  dateModified,
+  wordCount,
+  articleBody,
+  itemList = []
+} = Astro.props;
+---
+
+{type === 'home' && (
+  <script type="application/ld+json">
+    {JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      name: "Echo Reader",
+      alternateName: "Echo",
+      url: "https://echoreading.vercel.app/",
+      logo: "https://echoreading.vercel.app/favicon.ico",
+      description,
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Chattanooga",
+        addressRegion: "TN",
+        addressCountry: "US"
+      },
+      sameAs: [
+        "https://x.com/echo_reader",
+        "https://github.com/echoreader",
+        "https://www.linkedin.com/in/echo-reader/"
+      ]
+    }, null, 2)}
+  </script>
+)}
+
+{type === 'about' && (
+  <script type="application/ld+json">
+    {JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "ProfilePage",
+      mainEntity: {
+        "@type": "Person",
+        name: "Echo Reader",
+        alternateName: "Echo",
+        description,
+        url,
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Chattanooga",
+          addressRegion: "TN",
+          addressCountry: "US"
+        },
+        sameAs: [
+          "https://x.com/echo_reader",
+          "https://github.com/echoreader",
+          "https://www.linkedin.com/in/echo-reader/"
+        ]
+      }
+    }, null, 2)}
+  </script>
+)}
+
+{type === 'blogList' && itemList.length > 0 && (
+  <script type="application/ld+json">
+    {JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "@id": url,
+      mainEntity: {
+        "@type": "ItemList",
+        name: "Echo Reader Blog List",
+        description,
+        url,
+        numberOfItems: itemList.length,
+        itemListElement: itemList.map((item, index) => ({
+          "@type": "ListItem",
+          position: index + 1,
+          url: item.url,
+          name: item.title,
+          headline: item.title
+        }))
+      }
+    }, null, 2)}
+  </script>
+)}
+
+{type === 'blogPost' && (
+  <script type="application/ld+json">
+  {JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "@id": url,
+    headline: title,
+    description,
+    datePublished: new Date(datePublished).toISOString(),
+    dateModified: new Date(dateModified).toISOString(),
+    author: {
+      "@type": "Person",
+      name: "Echo Reader"
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Echo Reader",
+      url: "https://echoreading.vercel.app/",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://echoreading.vercel.app/favicon.ico"
+      }
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": url
+    },
+    isPartOf: {
+      "@type": "Blog",
+      name: "Echo Reader Blog",
+      url: "https://echoreading.vercel.app/blog/"
+    },
+    image: featuredImage || "https://echoreading.vercel.app/default-cover.jpg",
+    wordCount: wordCount || 500,
+    articleBody: articleBody || description
+  }, null, 2)}
+</script>
+
+)}

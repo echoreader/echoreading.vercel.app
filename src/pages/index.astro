@@ -1,10 +1,13 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
+
+const type = "home";
 ---
 
 <BaseLayout
   title="Echo Reader – Curated Gateway to Niche Blogspot Content"
   description="Echo Reader connects readers to niche Blogspot blogs in DIY crafts, travel, and sustainability—curated for insight, creativity, and conscious living."
+  type={type}, url={Astro.url.href}
 >
 
   <section class="py-10 text-center max-w-2xl mx-auto">

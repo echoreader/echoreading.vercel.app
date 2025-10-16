@@ -1,0 +1,114 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import RelatedPostsCard from "@components/RelatedPostsCard.astro";
+import FormattedDate from "@components/FormattedDate.astro";
+import OptimizedCover from "@components/OptimizedPicture.astro";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("posts");
+
+  return posts.map((post, index) => {
+    const slug = post.slug || post.id;
+
+    const prev = posts[index - 1] || null;
+    const next = posts[index + 1] || null;
+
+    return {
+      params: {
+        slug: slug, // ✅ string untuk [slug].astro
+        // slug: [slug] ✅ array untuk [...slug].astro
+      },
+      props: {
+        ...post,
+        slug,
+        prevPost: prev ? { title: prev.data.title, slug: prev.slug || prev.id } : null,
+        nextPost: next ? { title: next.data.title, slug: next.slug || next.id } : null,
+      },
+    };
+  });
+}
+const type = "blogPost";
+
+const post = Astro.props;
+const { Content } = await post.render();
+---
+
+<BaseLayout
+  title={post.data.title}
+  description={post.data.description}
+  type={type}
+  url={Astro.url.href}
+  featuredImage={post.data.cover}
+  datePublished={post.data.pubDate}
+  dateModified={new Date().toISOString()}
+  wordCount={post.data.wordCount || 500}
+  articleBody={post.data.description}
+>
+  <main>
+    <article class="prose mx-auto dark:prose-invert">
+      <div class="prose-h1 text-center">
+        <h1>{post.data.title}</h1>
+      </div>
+
+      {post.data.cover && post.data.coverAlt && (
+        <OptimizedCover src={post.data.cover} alt={post.data.coverAlt} />
+      )}
+
+      <div>
+        <Content />
+      </div>
+
+      <div class="prose-a:no-underline mt-4">
+        {post.data.tags?.map((tag) => (
+          <span class="mb-2 mr-2 inline-block rounded-full bg-neutral-200 px-3 py-1 text-sm hover:bg-neutral-500 dark:bg-neutral-600">
+            <a href={`/tags/${tag}/1/`}>{tag}</a>
+          </span>
+        ))}
+      </div>
+
+      <div class="flex justify-between mt-4">
+        <small>
+          Publish on <FormattedDate date={post.data.pubDate} />，Update on{" "}
+          <FormattedDate date={new Date().toISOString()} />
+        </small>
+      </div>
+    </article>
+
+    <div class="mt-12 grid gap-4 md:grid-cols-2">
+      {post.prevPost && (
+        <a
+          href={`/${post.prevPost.slug}/`}
+          class="flex flex-col px-6 py-6 border rounded-lg bg-gray-50 hover:bg-gray-100 dark:bg-black/30 dark:hover:bg-black/50 transition"
+        >
+          <p class="mb-2 text-sm uppercase text-gray-500 dark:text-white dark:opacity-60">
+            Previous
+          </p>
+          <h4 class="text-lg font-semibold text-gray-800 dark:text-white">
+            {post.prevPost.title}
+          </h4>
+        </a>
+      )}
+      {post.nextPost && (
+        <a
+          href={`/${post.nextPost.slug}/`}
+          class="flex flex-col px-6 py-6 border rounded-lg bg-gray-50 hover:bg-gray-100 dark:bg-black/30 dark:hover:bg-black/50 transition"
+        >
+          <p class="mb-2 text-sm uppercase text-gray-500 dark:text-white dark:opacity-60">
+            Next
+          </p>
+          <h4 class="text-lg font-semibold text-gray-800 dark:text-white">
+            {post.nextPost.title}
+          </h4>
+        </a>
+      )}
+    </div>
+
+    <div class="mt-8">
+      <RelatedPostsCard
+        currentCategory={post.data.category?.[0]}
+        currentSlug={post.slug}
+      />
+    </div>
+  </main>
+</BaseLayout>
