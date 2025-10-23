@@ -7,9 +7,9 @@ import partytown from "@astrojs/partytown";
 import pagefind from "astro-pagefind";
 import icon from "astro-icon";
 import tailwind from "@astrojs/tailwind";
-
+//echoreading.vercel.app > wildgreen.blog 
 export default defineConfig({
-  site: "https://echoreading.vercel.app",
+  site: "https://wildgreen.blog",
   trailingSlash: "always",
 
   markdown: {

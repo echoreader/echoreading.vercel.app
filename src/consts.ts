@@ -2,19 +2,19 @@
 // You can import this data from anywhere in your site by using the `import` keyword.
 
 // Base Page Metadata, src/layouts/BaseLayout.astro
-export const BRAND_NAME = "Echo Reader";
-export const SITE_TITLE = "Echo Reader";
+export const BRAND_NAME = "Wildgreen";
+export const SITE_TITLE = "Wildgreen";
 export const SITE_DESCRIPTION = "Echo Reader, a dedicated Multi-Niche Writer and the curator of a vast, knowledge-driven blog network.";
 
 // Tags Page Metadata, src/pages/tags/index.astro
-export const Tags_TITLE = "Echo Reader - All Tags";
+export const Tags_TITLE = "Wildgreen - All Tags";
 export const Tags_DESCRIPTION =
-  "Echo Reader - All tags and the count of articles related to each tag";
+  "Wildgreen - All tags and the count of articles related to each tag";
 
 // Tags Page Metadata, src/pages/tags/[tag]/[page].astro
 export function getTagMetadata(tag: string = "unknown") {
   return {
-    title: `All articles on '${tag}' tag in Echo Reader`,
+    title: `All articles on '${tag}' tag in Wildgreen`,
     description: `Explore articles about ${tag} for different perspectives and in-depth analysis.`,
   };
 }
@@ -22,8 +22,8 @@ export function getTagMetadata(tag: string = "unknown") {
 // Category Page Metadata, src/pages/category/[category]/[page].astro
 export function getCategoryMetadata(category: string) {
   return {
-    title: `All articles in '${category}' category in Echo Reader`,
-    description: `Browse all articles under the ${category} category in Echo Reader`,
+    title: `All articles in '${category}' category in Wildgreen`,
+    description: `Browse all articles under the ${category} category in Wildgreen`,
   };
 }
 
