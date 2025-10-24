@@ -15,27 +15,26 @@ const {
 
 {type === 'home' && (
   <script type="application/ld+json">
-    {JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      name: "Echo Reader",
-      alternateName: "Echo",
-      url: "https://wildgreen.blog /",
-      logo: "https://wildgreen.blog /favicon.ico",
-      description,
-      address: {
-        "@type": "PostalAddress",
-        addressLocality: "Chattanooga",
-        addressRegion: "TN",
-        addressCountry: "US"
-      },
-      sameAs: [
-        "https://x.com/echo_reader",
-        "https://github.com/echoreader",
-        "https://www.linkedin.com/in/echo-reader/"
-      ]
-    }, null, 2)}
-  </script>
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Echo Reader",
+  "alternateName": "Echo",
+  "url": "https://wildgreen.blog/",
+  "logo": "https://wildgreen.blog/favicon.ico",
+  "description": "WildGreen Blog — Sustainable Travel & Eco-Living for the Conscious Explorer",
+  "sameAs": [
+    "https://www.linkedin.com/in/echo-reader/",
+    "https://www.facebook.com/profile.php?id=61569116903478",
+    "https://x.com/echo_reader"
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "customer service",
+    "email": "tom.bisnis@gmail.com"
+  }
+}
+</script>
 )}
 
 {type === 'about' && (
