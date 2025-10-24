@@ -34,7 +34,7 @@ export function getCategoryMetadata(category: string) {
   { href: "/category/Three/1/", title: "Three" },
 ];*/
 export const HeaderLinks = [
-  { href: "/", title: "Home" },
+  //{ href: "/", title: "Home" },
   { href: "/blog/", title: "Blog" },
   { href: "/about/", title: "About" },
 ];
