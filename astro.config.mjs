@@ -8,37 +8,34 @@ import pagefind from "astro-pagefind";
 import icon from "astro-icon";
 import tailwind from "@astrojs/tailwind";
 
+//echoreading.vercel.app > wildgreen.blog 
 export default defineConfig({
-  site: "https://wildgreen.blog", // ✅ pastikan ini domain utama kamu
-  trailingSlash: "always",        // ✅ konsisten URL di sitemap
+  site: "https://wildgreen.blog",
+  trailingSlash: "always",
 
   markdown: {
-    remarkPlugins: [remarkModifiedTime], // ✅ inject modified date ke frontmatter
+    remarkPlugins: [remarkModifiedTime],
   },
 
   image: {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "**.unsplash.com", // ✅ remote image whitelist
+        hostname: "**.unsplash.com",
       },
     ],
   },
 
   prefetch: {
     prefetchAll: true,
-    defaultStrategy: "viewport", // ✅ UX boost
+    defaultStrategy: "viewport",
   },
 
   integrations: [
     mdx(),
-    sitemap({
-      exclude: ["/posts/*", "/search", "/tags/*"], // ✅ buang duplikat dan noise
-      changefreq: "weekly",                        // ✅ crawl hint
-      priority: 0.7,                               // ✅ crawl priority
-    }),
-    pagefind(), // ✅ search indexing
-    tailwind(), // ✅ styling
+    sitemap(),
+    pagefind(),
+    tailwind(),
     partytown({
       config: {
         forward: ["dataLayer.push"],
@@ -47,7 +44,7 @@ export default defineConfig({
     }),
     icon({
       include: {
-        tabler: ["*"], // ✅ icon whitelist
+        tabler: ["*"],
       },
     }),
   ],
