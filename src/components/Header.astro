@@ -4,8 +4,8 @@ import { Icon } from "astro-icon/components";
 import { SITE_TITLE, HeaderLinks } from "@consts";
 
 const isDev = import.meta.env.DEV;
-const base = isDev ? 'http://localhost:4321' : Astro.site.href;
-const resolve = (path) => new URL(path, base).href;
+const base = isDev ? 'http://localhost:4321' : Astro.site?.href ?? 'https://wildgreen.blog';
+const resolve = (path: string): string => new URL(path, base).href;
 ---
 
 <header class="sticky top-0 z-50 bg-white dark:bg-gray-900 flex flex-wrap md:justify-start md:flex-nowrap w-full py-7 shadow-sm">

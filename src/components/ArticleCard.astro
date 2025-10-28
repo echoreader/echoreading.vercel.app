@@ -3,9 +3,9 @@ const { title, description, pubDate, url } = Astro.props;
 ---
 
 <article class="border-b pb-4 mb-4">
-  <p class="text-sm text-gray-500">{new Date(pubDate).toLocaleDateString()}</p>
+  <p class="text-sm text-gray-500">{new Date(pubDate).toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' })}</p>
   <h2 class="text-lg font-semibold">
-    <a href={url} class="text-blue-700 hover:underline">{title}</a>
+    <a href={url} class="text-blue-700 hover:underline" rel="internal">{title}</a>
   </h2>
   {description && <p class="text-sm text-gray-700 mt-1">{description}</p>}
 </article>

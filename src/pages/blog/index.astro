@@ -5,7 +5,6 @@ import ArticleCard from "@components/ArticleCard.astro";
 
 const allPosts = await getCollection("posts");
 
-// ✅ Sort by pubDate safely
 allPosts.sort((a, b) => {
   const timeA = new Date(a.data.pubDate).getTime();
   const timeB = new Date(b.data.pubDate).getTime();
@@ -17,17 +16,16 @@ const firstPagePosts = allPosts.slice(0, postsPerPage);
 
 const type = "blogList";
 
-// ✅ Modular base resolver
 const isDev = import.meta.env.DEV;
-const base = isDev ? 'http://localhost:4321' : Astro.site.href;
-const resolve = (path) => new URL(path, base).href;
+const base = isDev ? 'http://localhost:4321' : Astro.site?.href ?? 'https://wildgreen.blog';
+const resolve = (path: string): string => new URL(path, base).href;
 ---
 
 <BaseLayout
   title="WildGreen Articles — Eco Travel Guides, Green Living Tips & Sustainable Lifestyle Insights"
   description="Browse WildGreen’s curated articles on mindful travel, climate awareness, and sustainable living. From destination tips to eco-friendly habits, our blog inspires conscious exploration and planet-positive choices."
   type={type}
-  url={Astro.url.href}
+  url={resolve(Astro.url.pathname)}
   itemList={firstPagePosts.map(post => ({
     title: post.data.title,
     url: resolve(`/${post.slug || post.id}/`)
@@ -36,13 +34,13 @@ const resolve = (path) => new URL(path, base).href;
   <section class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
     {firstPagePosts.map(post => (
       <ArticleCard
-  title={post.data.title}
-  description={post.data.description}
-  pubDate={post.data.pubDate}
-  slug={post.slug}
-  id={post.id}
-  url={resolve(`/${post.slug || post.id}/`)}
-/>
+        title={post.data.title}
+        description={post.data.description}
+        pubDate={post.data.pubDate}
+        slug={post.slug}
+        id={post.id}
+        url={resolve(`/${post.slug || post.id}/`)}
+      />
     ))}
   </section>
 </BaseLayout>
