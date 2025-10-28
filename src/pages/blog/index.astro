@@ -15,13 +15,12 @@ allPosts.sort((a, b) => {
 const postsPerPage = 15;
 const firstPagePosts = allPosts.slice(0, postsPerPage);
 
-// ⚠️ totalPages belum dipakai, jadi kita bisa hapus atau simpan untuk nanti
-// const totalPages = Math.ceil(allPosts.length / postsPerPage);
-
 const type = "blogList";
 
-const base = (Astro.site?.href ?? 'http://localhost:4321/').replace(/\/$/, '');
-
+// ✅ Modular base resolver
+const isDev = import.meta.env.DEV;
+const base = isDev ? 'http://localhost:4321' : Astro.site.href;
+const resolve = (path) => new URL(path, base).href;
 ---
 
 <BaseLayout
@@ -31,18 +30,19 @@ const base = (Astro.site?.href ?? 'http://localhost:4321/').replace(/\/$/, '');
   url={Astro.url.href}
   itemList={firstPagePosts.map(post => ({
     title: post.data.title,
-    url: `${base}/${post.slug || post.id}/`
+    url: resolve(`/${post.slug || post.id}/`)
   }))}
 >
   <section class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
     {firstPagePosts.map(post => (
       <ArticleCard
-        title={post.data.title}
-        description={post.data.description}
-        pubDate={post.data.pubDate}
-        slug={post.slug}
-        id={post.id}
-      />
+  title={post.data.title}
+  description={post.data.description}
+  pubDate={post.data.pubDate}
+  slug={post.slug}
+  id={post.id}
+  url={resolve(`/${post.slug || post.id}/`)}
+/>
     ))}
   </section>
 </BaseLayout>
