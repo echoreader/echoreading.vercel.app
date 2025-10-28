@@ -8,28 +8,27 @@ const base = isDev ? 'http://localhost:4321' : Astro.site?.href ?? 'https://wild
 const resolve = (path: string): string => new URL(path, base).href;
 ---
 
-<header class="sticky top-0 z-50 bg-white dark:bg-gray-900 flex flex-wrap md:justify-start md:flex-nowrap w-full py-7 shadow-sm">
-  <nav class="relative max-w-7xl w-full flex flex-wrap md:grid md:grid-cols-12 basis-full items-center px-4 mx-auto" aria-label="Global">
+<header class="sticky top-0 z-50 bg-white dark:bg-gray-900 w-full py-7 shadow-sm">
+  <nav class="max-w-7xl mx-auto px-4 flex flex-wrap items-center justify-between md:grid md:grid-cols-12" aria-label="Global">
     
     <!-- Left: Site Title -->
     <div class="md:col-span-3">
-      <a class="flex-none text-xl font-semibold text-neutral-900 hover:text-neutral-600 dark:text-neutral-400 dark:hover:text-neutral-200" href={resolve('/')} aria-label="Astroverse">
+      <a class="text-xl font-semibold text-neutral-900 hover:text-neutral-600 dark:text-neutral-400 dark:hover:text-neutral-200" href={resolve('/')} aria-label="Astroverse">
         {SITE_TITLE}
       </a>
     </div>
 
-    <!-- Right: Search + Theme Toggle (commented out) -->
-    <div class="flex items-center gap-x-2 ms-auto py-1 md:ps-6 md:order-2 md:col-span-3">
-      {/*
-      <button type="button" class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-xl border border-transparent text-black hover:bg-neutral-100 dark:text-white dark:hover:bg-neutral-700 transition disabled:opacity-50 disabled:pointer-events-none" onclick={`window.location.href='${resolve('/search/')}'`}>
-        <Icon name="tabler:search" class="icon-base" />
+    <!-- Mobile Toggle -->
+    <div class="md:hidden">
+      <button type="button" class="hs-collapse-toggle size-[38px] flex items-center justify-center text-black dark:text-white hover:bg-neutral-100 dark:hover:bg-neutral-700 rounded-xl" data-hs-collapse="#navbar-collapse-with-animation" aria-controls="navbar-collapse-with-animation" aria-label="Toggle navigation">
+        <Icon name="tabler:menu-2" class="hs-collapse-open:hidden size-4" />
+        <Icon name="tabler:menu-order" class="hs-collapse-open:block hidden size-4" />
       </button>
-      */}
     </div>
 
     <!-- Right: Blog/About Menu -->
-    <div id="navbar-collapse-with-animation" class="hs-collapse hidden overflow-hidden transition-all duration-300 basis-full grow md:block md:w-auto md:basis-auto md:order-3 md:col-span-6 ms-auto">
-      <div class="flex flex-col gap-y-4 gap-x-0 mt-5 md:flex-row md:justify-end md:items-center md:gap-y-0 md:gap-x-7 md:mt-0">
+    <div id="navbar-collapse-with-animation" class="hs-collapse hidden w-full md:block md:col-span-9 transition-all duration-300 overflow-hidden">
+      <div class="flex flex-col md:flex-row md:justify-end md:items-center gap-y-4 md:gap-y-0 md:gap-x-7 mt-5 md:mt-0">
         {
           HeaderLinks.map((link) => (
             <Link
