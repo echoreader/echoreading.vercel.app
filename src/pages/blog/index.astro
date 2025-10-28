@@ -19,6 +19,9 @@ const firstPagePosts = allPosts.slice(0, postsPerPage);
 // const totalPages = Math.ceil(allPosts.length / postsPerPage);
 
 const type = "blogList";
+
+const base = (Astro.site?.href ?? 'http://localhost:4321/').replace(/\/$/, '');
+
 ---
 
 <BaseLayout
@@ -28,7 +31,7 @@ const type = "blogList";
   url={Astro.url.href}
   itemList={firstPagePosts.map(post => ({
     title: post.data.title,
-    url: `/${post.slug || post.id}/`
+    url: `${base}/${post.slug || post.id}/`
   }))}
 >
   <section class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
