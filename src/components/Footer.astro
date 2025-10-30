@@ -3,6 +3,10 @@ import { Icon } from "astro-icon/components";
 import Link from "@components/Links.astro";
 import { BRAND_NAME } from "@consts";
 const today = new Date();
+
+const isDev = import.meta.env.DEV;
+const base = isDev ? 'http://localhost:4321' : Astro.site?.href ?? 'https://wildgreen.blog';
+const resolve = (path: string): string => new URL(path, base).href;
 ---
 
 <footer class="mt-auto w-full max-w-[85rem] py-10 mx-auto">
@@ -36,19 +40,21 @@ const today = new Date();
       <div class="mt-2 sm:order-3 sm:mb-0 text-right">
         <a
           class="block text-sm text-neutral-500 dark:text-neutral-500"
-          href="https://globetrailadventures.blogspot.com/" 
-          rel="nofollow noopener"
-          target="_blank"
+          href={resolve("/contact/")}
         >
-          Globe Trail Adventures
+          Contact
         </a>
         <a
           class="block text-sm text-neutral-500 dark:text-neutral-500"
-          href="https://savesleaves.blogspot.com/"
-          rel="nofollow noopener"
-          target="_blank"
+          href={resolve("/disclaimer/")}
         >
-          Saves Leaves
+          Disclaimer
+        </a>
+        <a
+          class="block text-sm text-neutral-500 dark:text-neutral-500"
+          href={resolve("/privacy-policy/")}
+        >
+          Privacy Policy
         </a>
       </div>
 
