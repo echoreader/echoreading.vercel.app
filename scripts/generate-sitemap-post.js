@@ -16,7 +16,7 @@ const urls = files.map(file => {
 
   return `
   <url>
-    <loc>${SITE_URL}/${slug}</loc>
+    <loc>${SITE_URL}/${slug}/</loc>
     <lastmod>${new Date(date).toISOString()}</lastmod>
     <priority>0.8</priority>
   </url>`;

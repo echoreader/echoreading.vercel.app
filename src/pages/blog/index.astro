@@ -22,8 +22,8 @@ const resolve = (path: string): string => new URL(path, base).href;
 ---
 
 <BaseLayout
-  title="WildGreen Articles — Eco Travel Guides, Green Living Tips & Sustainable Lifestyle Insights"
-  description="Browse WildGreen’s curated articles on mindful travel, climate awareness, and sustainable living. From destination tips to eco-friendly habits, our blog inspires conscious exploration and planet-positive choices."
+  title="WildGreen Articles — Eco Travel Guides, Green Living Tips"
+  description="Browse WildGreen’s curated articles on mindful travel, climate awareness, and sustainable living. From destination tips to eco-friendly habits."
   type={type}
   url={resolve(Astro.url.pathname)}
   itemList={firstPagePosts.map(post => ({
