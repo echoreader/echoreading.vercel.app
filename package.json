@@ -1,15 +1,16 @@
 {
-  "name": "astroverse",
+  "name": "wildgreen-blog",
+  "version": "1.0.0",
+  "description": "Static blog for wildgreen.blog built with Astro",
+  "author": "Echo Reader",
   "type": "module",
-  "version": "5.0.0",
   "scripts": {
     "dev": "astro dev",
-    "start": "astro dev",
+    "start": "npm run dev",
     "check": "astro check",
     "build": "astro check && astro build",
     "preview": "astro preview",
     "format": "prettier -w .",
-    "astro": "astro",
     "generate-sitemap-post": "node scripts/generate-sitemap-post.js",
     "generate-sitemap-page": "node scripts/generate-sitemap-page.js",
     "generate-sitemap-index": "node scripts/generate-sitemap-index.js",
@@ -39,5 +40,14 @@
     "prettier-plugin-astro": "^0.14.0",
     "prettier-plugin-tailwindcss": "^0.6.2",
     "typescript": "^5.5.2"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/echoreader/wildgreen.blog"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
   }
 }
