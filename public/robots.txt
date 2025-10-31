@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: /404/
+Disallow: /assets/
+Disallow: /drafts/
+Disallow: /rss.xml
+Allow: /
+
+Sitemap: https://wildgreen.blog/sitemap-index.xml
+Host: https://wildgreen.blog
