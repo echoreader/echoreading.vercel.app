@@ -7,46 +7,44 @@ interface Props {
   url?: string;
 }
 import Schema from "@components/Schema.astro";
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+const isDev = import.meta.env.DEV;
+const base = isDev ? 'http://localhost:4321' : Astro.site?.href ?? 'https://wildgreen.blog';
+const resolve = (path: string): string => new URL(path, base).href;
+const canonicalUrl = resolve(Astro.url.pathname);
 
 const { title, description, image = "/blog-placeholder-1.avif" , type, url} = Astro.props;
 ---
 
-<!-- Global Metadata -->
+<!-- 1. Global Metadata -->
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="generator" content={Astro.generator} />
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
 
-<!-- Canonical URL -->
-<link rel="canonical" href={canonicalURL} />
-
-<!-- Sitemap -->
+<!-- 2. Canonical & Sitemap -->
+<link rel="canonical" href={canonicalUrl} />
 <link rel="sitemap" href="/sitemap-index.xml" />
 
-<!-- Primary Meta Tags -->
+<!-- 3. Primary Meta Tags -->
 <title>{title}</title>
 <meta name="title" content={title} />
 <meta name="description" content={description} />
-<meta name="robots" content="index, follow">
+<meta name="robots" content="index, follow" />
 
-<!-- Open Graph / Facebook -->
+<!-- 4. Open Graph / Facebook -->
 <meta property="og:type" content="website" />
 <meta property="og:url" content={Astro.url} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:image" content={new URL(image, Astro.url)} />
 
-<!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:url" content={Astro.url} />
-<meta property="twitter:title" content={title} />
-<meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={new URL(image, Astro.url)} />
+<!-- 5. Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:url" content={Astro.url} />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={new URL(image, Astro.url)} />
 
-<!-- Preline CSS -->
-<script>
-  import "preline/dist/preline.js";
-</script>
-
+<!-- 6. Structured Data -->
 <Schema title={title} description={description} url={url} type={type} />
