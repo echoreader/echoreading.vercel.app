@@ -1,5 +1,7 @@
 import { defineConfig } from "astro/config";
 import { remarkModifiedTime } from "./src/utils/remark-modified-time.mjs";
+import remarkLinkHelper from "./src/utils/remark-link-helper.js";
+import { siteUrl } from "./src/utils/site.js";
 
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
@@ -14,7 +16,14 @@ export default defineConfig({
   trailingSlash: "always",
 
   markdown: {
-    remarkPlugins: [remarkModifiedTime],
+    smartypants: false,
+    remarkPlugins: [remarkModifiedTime,remarkLinkHelper({ siteUrl }),],
+    // 🔥 Ini yang bikin <a> dari plugin bisa dirender
+  // Tanpa ini, node type "html" akan diabaikan
+  // dan tampil sebagai teks literal
+  rehypePlugins: [],
+  syntaxHighlight: false,
+  dangerouslyAllowHtml: true,
   },
 
   image: {

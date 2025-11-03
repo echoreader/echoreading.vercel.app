@@ -1,0 +1,10 @@
+---
+import { siteUrl } from '../utils/site.js';
+const { href, text } = Astro.props;
+
+const isRelative = href?.startsWith('/');
+const finalHref = isRelative ? new URL(href, siteUrl).href : href;
+---
+<a href={finalHref} class="external">
+  {text}
+</a>
