@@ -3,20 +3,37 @@
 
   <url>
     <loc>https://wildgreen.blog/</loc>
-    <lastmod>2025-10-27T13:47:13.608Z</lastmod>
+    <lastmod>2025-11-06T20:47:13.418Z</lastmod>
     <priority>1</priority>
   </url>
 
   <url>
-    <loc>https://wildgreen.blog/blog</loc>
-    <lastmod>2025-10-27T13:47:13.608Z</lastmod>
+    <loc>https://wildgreen.blog/blog/</loc>
+    <lastmod>2025-11-06T20:47:13.418Z</lastmod>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://wildgreen.blog/about</loc>
-    <lastmod>2025-10-27T13:47:13.608Z</lastmod>
-    <priority>0.6</priority>
+    <loc>https://wildgreen.blog/about/</loc>
+    <lastmod>2025-11-06T20:47:13.418Z</lastmod>
+    <priority>0.7</priority>
   </url>
 
+  <url>
+    <loc>https://wildgreen.blog/contact/</loc>
+    <lastmod>2025-11-06T20:47:13.418Z</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://wildgreen.blog/disclaimer/</loc>
+    <lastmod>2025-11-06T20:47:13.418Z</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://wildgreen.blog/privacy-policy/</loc>
+    <lastmod>2025-11-06T20:47:13.418Z</lastmod>
+    <priority>0.7</priority>
+  </url>
 </urlset>
