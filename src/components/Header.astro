@@ -8,32 +8,45 @@ const base = isDev ? 'http://localhost:4321' : Astro.site?.href ?? 'https://wild
 const resolve = (path: string): string => new URL(path, base).href;
 ---
 
-<header class="sticky top-0 z-50 bg-white dark:bg-gray-900 w-full py-7 shadow-sm">
-  <nav class="max-w-7xl mx-auto px-4 flex flex-wrap items-center justify-between md:grid md:grid-cols-12" aria-label="Global">
+<header class="sticky top-0 z-50 bg-white dark:bg-gray-900 w-full py-5 shadow-sm">
+  <nav class="max-w-4xl mx-auto px-3 flex flex-wrap items-center justify-between md:grid md:grid-cols-12" aria-label="Global">
     
     <!-- Left: Site Title -->
     <div class="md:col-span-3">
-      <a class="text-xl font-semibold text-neutral-900 hover:text-neutral-600 dark:text-neutral-400 dark:hover:text-neutral-200" href={resolve('/')} aria-label="Astroverse">
+      <a 
+        class="no-underline text-xl font-semibold text-neutral-900 hover:text-neutral-600 dark:text-neutral-400 dark:hover:text-neutral-200" 
+        href={resolve('/')} 
+        aria-label="Astroverse"
+      >
         {SITE_TITLE}
       </a>
     </div>
 
     <!-- Mobile Toggle -->
     <div class="md:hidden">
-      <button type="button" class="hs-collapse-toggle size-[38px] flex items-center justify-center text-black dark:text-white hover:bg-neutral-100 dark:hover:bg-neutral-700 rounded-xl" data-hs-collapse="#navbar-collapse-with-animation" aria-controls="navbar-collapse-with-animation" aria-label="Toggle navigation">
+      <button 
+        type="button" 
+        class="hs-collapse-toggle size-[38px] flex items-center justify-center text-black dark:text-white hover:bg-neutral-100 dark:hover:bg-neutral-700 rounded-xl" 
+        data-hs-collapse="#navbar-collapse-with-animation" 
+        aria-controls="navbar-collapse-with-animation" 
+        aria-label="Toggle navigation"
+      >
         <Icon name="tabler:menu-2" class="hs-collapse-open:hidden size-4" />
         <Icon name="tabler:menu-order" class="hs-collapse-open:block hidden size-4" />
       </button>
     </div>
 
     <!-- Right: Blog/About Menu -->
-    <div id="navbar-collapse-with-animation" class="hs-collapse hidden w-full md:block md:col-span-9 transition-all duration-300 overflow-hidden">
-      <div class="flex flex-col md:flex-row md:justify-end md:items-center gap-y-4 md:gap-y-0 md:gap-x-7 mt-5 md:mt-0">
+    <div 
+      id="navbar-collapse-with-animation" 
+      class="hs-collapse hidden w-full md:block md:col-span-9 transition-all duration-300 overflow-hidden"
+    >
+      <div class="flex flex-col md:flex-row md:justify-end md:items-center gap-y-3 md:gap-y-0 md:gap-x-5 mt-4 md:mt-0">
         {
           HeaderLinks.map((link) => (
             <Link
               href={resolve(link.href)}
-              class="px-4 py-3 font-medium text-neutral-900 hover:text-neutral-600 dark:text-neutral-400 dark:hover:text-neutral-200"
+              class="no-underline px-3 py-2 font-medium text-neutral-900 hover:text-neutral-600 dark:text-neutral-400 dark:hover:text-neutral-200"
             >
               {link.title}
             </Link>
@@ -44,3 +57,4 @@ const resolve = (path: string): string => new URL(path, base).href;
 
   </nav>
 </header>
+

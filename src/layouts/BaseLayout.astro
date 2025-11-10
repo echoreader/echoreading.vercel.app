@@ -33,44 +33,20 @@ const {
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- 1. SEO meta via BaseHead -->
+    <!-- 1. SEO + global scripts via BaseHead (centralized) -->
     <BaseHead title={title} description={description} type={type} url={Astro.url.href} />
-
-    <!-- 2. Google AdSense Script -->
-    <script
-      async
-      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=pub-6771362188294710"
-      crossorigin="anonymous"
-    ></script>
-
-    <!-- 3. Preline CSS -->
-    <script>
-      import "preline/dist/preline.js";
-    </script>
-
-    <!-- 4. Cloudflare beacon script -->
-    <script>
-      if (window.location.search.includes("no-track")) {
-        localStorage.setItem("skipAnalytics", "true");
-      }
-      if (localStorage.getItem("skipAnalytics") !== "true") {
-        const cfScript = document.createElement("script");
-        cfScript.defer = true;
-        cfScript.src = "https://static.cloudflareinsights.com/beacon.min.js";
-        cfScript.setAttribute("data-cf-beacon", '{"token": "662df3ff379748a68d3a6628cc9f611d"}');
-        document.head.appendChild(cfScript);
-      }
-    </script>
   </head>
 
-  <body
-    class="flex flex-col min-h-screen mx-auto max-w-6xl px-4 dark:prose-invert sm:px-6 lg:px-8 dark:bg-neutral-900"
-  >
+  <body class="m-0 flex flex-col min-h-screen dark:bg-neutral-900 dark:prose-invert">
+    <!-- Header full width -->
     <Header />
-    <main class="flex-grow">
+
+    <!-- Main content container -->
+    <main class="flex-grow max-w-4xl mx-auto px-3 sm:px-6 lg:px-8">
       <slot />
     </main>
 
+    <!-- Footer full width -->
     <Footer />
   </body>
 </html>

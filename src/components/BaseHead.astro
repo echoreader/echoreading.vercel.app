@@ -13,7 +13,7 @@ const base = isDev ? 'http://localhost:4321' : Astro.site?.href ?? 'https://wild
 const resolve = (path: string): string => new URL(path, base).href;
 const canonicalUrl = resolve(Astro.url.pathname);
 
-const { title, description, image = "/blog-placeholder-1.avif" , type, url} = Astro.props;
+const { title, description, image = "/blog-placeholder-1.avif", type, url } = Astro.props;
 ---
 
 <!-- 1. Global Metadata -->
@@ -21,6 +21,9 @@ const { title, description, image = "/blog-placeholder-1.avif" , type, url} = As
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="generator" content={Astro.generator} />
 <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
 
 <!-- 2. Canonical & Sitemap -->
 <link rel="canonical" href={canonicalUrl} />
@@ -33,7 +36,7 @@ const { title, description, image = "/blog-placeholder-1.avif" , type, url} = As
 <meta name="robots" content="index, follow" />
 
 <!-- 4. Open Graph / Facebook -->
-<meta property="og:type" content="website" />
+<meta property="og:type" content={type || "website"} />
 <meta property="og:url" content={Astro.url} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
@@ -48,3 +51,27 @@ const { title, description, image = "/blog-placeholder-1.avif" , type, url} = As
 
 <!-- 6. Structured Data -->
 <Schema title={title} description={description} url={url} type={type} />
+
+<!-- 7. Global Scripts (moved here from BaseLayout) -->
+<script
+  async
+  src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=pub-6771362188294710"
+  crossorigin="anonymous"
+></script>
+
+<script type="module">
+  import "preline/dist/preline.js";
+</script>
+
+<script>
+  if (window.location.search.includes("no-track")) {
+    localStorage.setItem("skipAnalytics", "true");
+  }
+  if (localStorage.getItem("skipAnalytics") !== "true") {
+    const cfScript = document.createElement("script");
+    cfScript.defer = true;
+    cfScript.src = "https://static.cloudflareinsights.com/beacon.min.js";
+    cfScript.setAttribute("data-cf-beacon", '{"token": "662df3ff379748a68d3a6628cc9f611d"}');
+    document.head.appendChild(cfScript);
+  }
+</script>

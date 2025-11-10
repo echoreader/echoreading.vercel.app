@@ -8,7 +8,7 @@ import sitemap from "@astrojs/sitemap";
 import partytown from "@astrojs/partytown";
 import pagefind from "astro-pagefind";
 import icon from "astro-icon";
-import tailwind from "@astrojs/tailwind";
+import UnoCSS from 'unocss/astro'
 
 //echoreading.vercel.app > wildgreen.blog 
 export default defineConfig({
@@ -41,6 +41,9 @@ export default defineConfig({
   },
 
   integrations: [
+    UnoCSS({
+      injectReset: true // or a path to the reset file
+    }),
     mdx(),
     //sitemap({
       //changefreq: 'weekly',
@@ -48,7 +51,6 @@ export default defineConfig({
       //lastmod: new Date(),
     //}),
     pagefind(),
-    tailwind(),
     partytown({
       config: {
         forward: ["dataLayer.push"],
