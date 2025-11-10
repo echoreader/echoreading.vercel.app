@@ -26,20 +26,20 @@ const resolve = (path: string): string => new URL(path, base).href;
     <div class="md:hidden">
       <button 
         type="button" 
-        class="hs-collapse-toggle size-[38px] flex items-center justify-center text-black dark:text-white hover:bg-neutral-100 dark:hover:bg-neutral-700 rounded-xl" 
-        data-hs-collapse="#navbar-collapse-with-animation" 
-        aria-controls="navbar-collapse-with-animation" 
+        class="menu-toggle size-[38px] flex items-center justify-center text-black dark:text-white hover:bg-neutral-100 dark:hover:bg-neutral-700 rounded-xl" 
+        aria-controls="navbar-menu" 
+        aria-expanded="false"
         aria-label="Toggle navigation"
       >
-        <Icon name="tabler:menu-2" class="hs-collapse-open:hidden size-4" />
-        <Icon name="tabler:menu-order" class="hs-collapse-open:block hidden size-4" />
+        <Icon name="tabler:menu-2" class="icon-open size-5" />
+        <Icon name="tabler:x" class="icon-close hidden size-5" />
       </button>
     </div>
 
     <!-- Right: Blog/About Menu -->
     <div 
-      id="navbar-collapse-with-animation" 
-      class="hs-collapse hidden w-full md:block md:col-span-9 transition-all duration-300 overflow-hidden"
+      id="navbar-menu" 
+      class="nav-links hidden w-full md:block md:col-span-9 transition-all duration-300"
     >
       <div class="flex flex-col md:flex-row md:justify-end md:items-center gap-y-3 md:gap-y-0 md:gap-x-5 mt-4 md:mt-0">
         {
@@ -58,3 +58,18 @@ const resolve = (path: string): string => new URL(path, base).href;
   </nav>
 </header>
 
+<!-- Script toggle -->
+<script>
+  const btn = document.querySelector('.menu-toggle');
+  const menu = document.getElementById('navbar-menu');
+  const iconOpen = btn.querySelector('.icon-open');
+  const iconClose = btn.querySelector('.icon-close');
+
+  btn?.addEventListener('click', () => {
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!expanded));
+    menu.classList.toggle('hidden');
+    iconOpen.classList.toggle('hidden');
+    iconClose.classList.toggle('hidden');
+  });
+</script>
