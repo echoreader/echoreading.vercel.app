@@ -60,16 +60,21 @@ const resolve = (path: string): string => new URL(path, base).href;
 
 <!-- Script toggle -->
 <script>
-  const btn = document.querySelector('.menu-toggle');
-  const menu = document.getElementById('navbar-menu');
-  const iconOpen = btn.querySelector('.icon-open');
-  const iconClose = btn.querySelector('.icon-close');
+  if (typeof document !== 'undefined') {
+    const btn = document.querySelector('.menu-toggle');
+    const menu = document.getElementById('navbar-menu');
+    const iconOpen = btn?.querySelector('.icon-open');
+    const iconClose = btn?.querySelector('.icon-close');
 
-  btn?.addEventListener('click', () => {
-    const expanded = btn.getAttribute('aria-expanded') === 'true';
-    btn.setAttribute('aria-expanded', String(!expanded));
-    menu.classList.toggle('hidden');
-    iconOpen.classList.toggle('hidden');
-    iconClose.classList.toggle('hidden');
-  });
+    if (btn && menu && iconOpen && iconClose) {
+      btn.addEventListener('click', () => {
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!expanded));
+        menu.classList.toggle('hidden');
+        iconOpen.classList.toggle('hidden');
+        iconClose.classList.toggle('hidden');
+      });
+    }
+  }
 </script>
+
