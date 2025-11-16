@@ -1,5 +1,5 @@
 ---
-import BaseHead from "@components/BaseHead.astro";
+import Head from "@components/Head.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 
@@ -34,7 +34,7 @@ const {
 <html lang="en">
   <head>
     <!-- 1. SEO + global scripts via BaseHead (centralized) -->
-    <BaseHead title={title} description={description} type={type} url={Astro.url.href} />
+    <Head title={title} description={description} type={type} url={Astro.url.href} />
   </head>
 
   <body class="m-0 flex flex-col min-h-screen dark:bg-neutral-900 dark:prose-invert">

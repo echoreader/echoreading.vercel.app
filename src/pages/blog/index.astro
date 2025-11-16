@@ -1,6 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-import BaseLayout from "@layouts/BaseLayout.astro";
+import Layout from "@layouts/Layout.astro";
 
 const allPosts = await getCollection("posts");
 
@@ -20,7 +20,7 @@ const base = isDev ? 'http://localhost:4321' : Astro.site?.href ?? 'https://wild
 const resolve = (path: string): string => new URL(path, base).href;
 ---
 
-<BaseLayout
+<Layout
   title="WildGreen Articles — Eco Travel Guides, Green Living Tips"
   description="Browse WildGreen’s curated articles on mindful travel, climate awareness, and sustainable living. From destination tips to eco-friendly habits."
   type={type}
@@ -31,36 +31,35 @@ const resolve = (path: string): string => new URL(path, base).href;
   }))}
 >
   <section class="flex flex-col gap-6 mb-12 pt-12">
-  <h1 class="text-2xl font-bold mb-6">Blog</h1>
-  {firstPagePosts.map(post => (
-    <article class="rounded-lg border border-solid border-gray-300 p-4 shadow-sm">
-      <!-- Judul -->
-      <h2 class="text-3xl font-semibold mb-1">
-        <a
-          href={resolve(`/${post.slug || post.id}/`)}
-          class="no-underline text-blue-700 hover:text-blue-500"
-          rel="internal"
-        >
-          {post.data.title}
-        </a>
-      </h2>
+    <h1 class="text-2xl font-bold mb-6">Blog</h1>
+    {firstPagePosts.map(post => (
+      <article class="rounded-lg border border-solid border-gray-300 p-4 shadow-sm">
+        <!-- Judul -->
+        <h2 class="text-3xl font-semibold mb-1">
+          <a
+            href={resolve(`/${post.slug || post.id}/`)}
+            class="no-underline text-blue-700 hover:text-blue-500"
+            rel="internal"
+          >
+            {post.data.title}
+          </a>
+        </h2>
 
-      <!-- Date -->
-      <p class="text-sm text-gray-500 mb-2">
-        {new Date(post.data.pubDate).toLocaleDateString(undefined, {
-          year: 'numeric',
-          month: 'long',
-          day: 'numeric'
-        })}
-      </p>
+        <!-- Date -->
+        <p class="text-sm text-gray-500 mb-2">
+          {new Date(post.data.pubDate).toLocaleDateString(undefined, {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+          })}
+        </p>
 
-      <!-- Description -->
-      {post.data.description && (
-        <p class="text-sm text-gray-700">{post.data.description}</p>
-      )}
-    </article>
-  ))}
-</section>
+        <!-- Description -->
+        {post.data.description && (
+          <p class="text-sm text-gray-700">{post.data.description}</p>
+        )}
+      </article>
+    ))}
+  </section>
 
-
-</BaseLayout>
+</Layout>

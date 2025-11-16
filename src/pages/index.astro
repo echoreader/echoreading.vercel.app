@@ -1,15 +1,14 @@
 ---
-import BaseLayout from "@layouts/BaseLayout.astro";
+import Layout from "@layouts/Layout.astro";
 
 const type = "home";
 ---
 
-<BaseLayout
+<Layout
   title="WildGreen Blog — Sustainable Travel & Eco-Living for the Conscious Explorer"
   description="WildGreen Blog — Sustainable Travel & Eco-Living for the Conscious Explorer"
   type={type}, url={Astro.url.href}
 >
-
   <section class="py-10 text-center max-w-2xl mx-auto">
     <h1 class="text-4xl font-bold mb-4">Travel Light, Live Green — Conscious Journeys Begin Here</h1>
     <p>WildGreen blends wanderlust with sustainability. Discover eco-friendly travel guides, green living tips, and climate-aware insights curated for explorers who care deeply about the planet and their path.</p>
@@ -17,5 +16,4 @@ const type = "home";
       Explore the Blog →
     </a>
   </section>
-</BaseLayout>
-
+</Layout>

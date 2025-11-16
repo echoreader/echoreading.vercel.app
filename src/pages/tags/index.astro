@@ -1,6 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-import BaseLayout from "@layouts/BaseLayout.astro";
+import Layout from "@layouts/Layout.astro";
 import { Tags_TITLE, Tags_DESCRIPTION } from "@consts";
 
 const allPosts = await getCollection("posts");
@@ -18,7 +18,7 @@ allPosts.forEach((post) => {
 const tags = Object.keys(tagCounts);
 ---
 
-<BaseLayout title={Tags_TITLE} description={Tags_DESCRIPTION}>
+<Layout title={Tags_TITLE} description={Tags_DESCRIPTION}>
   <div class="prose prose-lg mx-auto p-6">
     <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4">
       {
@@ -33,4 +33,4 @@ const tags = Object.keys(tagCounts);
       }
     </div>
   </div>
-</BaseLayout>
+</Layout>

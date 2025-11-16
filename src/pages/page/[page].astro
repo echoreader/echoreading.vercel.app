@@ -1,6 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-import BaseLayout from "@layouts/BaseLayout.astro";
+import Layout from "@layouts/Layout.astro";
 import HeroCard from "@components/HeroCard.astro";
 import PostCard from "@components/CommonCard.astro";
 import Pagination from "@components/Pagination.astro";
@@ -46,7 +46,7 @@ export async function getStaticPaths() {
 const { page } = Astro.props;
 ---
 
-<BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
+<Layout title={SITE_TITLE} description={SITE_DESCRIPTION}>
   {
     page.currentPage === 1 ? (
       <>
@@ -83,4 +83,4 @@ const { page } = Astro.props;
     basePath="/page"
     maxDisplayedPages={5}
   />
-</BaseLayout>
+</Layout>

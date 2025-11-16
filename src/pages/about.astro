@@ -1,15 +1,14 @@
 ---
-import BaseLayout from "@layouts/BaseLayout.astro";
+import Layout from "@layouts/Layout.astro";
 
 const type = "about";
 ---
 
-<BaseLayout
+<Layout
   title="About WildGreen — Exploring the World with Purpose & Planet in Mind"
   description="WildGreen blends the thrill of travel with the heart of sustainability. Learn about our mission to inspire eco-conscious adventures."
   type={type}, url={Astro.url.href}
 >
-
   <section class="py-10 text-center max-w-2xl mx-auto">
     <h1 class="text-4xl font-bold mb-4">About WildGreen</h1>
     <p class="text-lg leading-relaxed">
@@ -21,5 +20,4 @@ const type = "about";
       Echo Reader - echoreader.blog
     </p>
   </section>
-</BaseLayout>
-
+</Layout>

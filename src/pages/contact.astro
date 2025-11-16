@@ -1,15 +1,14 @@
 ---
-import BaseLayout from "@layouts/BaseLayout.astro";
+import Layout from "@layouts/Layout.astro";
 
 const type = "contact";
 ---
 
-<BaseLayout
+<Layout
   title="Contact"
   description="Get in touch with me for questions, feedback, or collaboration opportunities."
   type={type}, url={Astro.url.href}
 >
-
   <section class="py-10 text-center max-w-2xl mx-auto">
     <h1 class="text-4xl font-bold mb-4">Contact</h1>
     <p class="text-lg leading-relaxed">
@@ -24,5 +23,4 @@ const type = "contact";
       I welcome constructive feedback and collaboration ideas. Please reach out if you'd like to connect.
     </p>
   </section>
-</BaseLayout>
-
+</Layout>
