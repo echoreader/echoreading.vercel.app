@@ -10,15 +10,11 @@ export async function getStaticPaths() {
 
   return posts.map((post, index) => {
     const slug = post.slug || post.id;
-
     const prev = posts[index - 1] || null;
     const next = posts[index + 1] || null;
 
     return {
-      params: {
-        slug: slug, // ✅ string untuk [slug].astro
-        // slug: [slug] ✅ array untuk [...slug].astro
-      },
+      params: { slug },
       props: {
         ...post,
         slug,
@@ -28,8 +24,8 @@ export async function getStaticPaths() {
     };
   });
 }
-const type = "blogPost";
 
+const type = "blogPost";
 const post = Astro.props;
 const { Content } = await post.render();
 const safeWordCount = typeof (post.data as any).wordCount === "number" ? (post.data as any).wordCount : 500;
@@ -37,7 +33,6 @@ const safeWordCount = typeof (post.data as any).wordCount === "number" ? (post.d
 const isDev = import.meta.env.DEV;
 const base = isDev ? 'http://localhost:4321' : Astro.site?.href ?? 'https://wildgreen.blog';
 const resolve = (path: string): string => new URL(path, base).href;
-
 ---
 
 <Layout
@@ -52,20 +47,30 @@ const resolve = (path: string): string => new URL(path, base).href;
   articleBody={post.data.description}
 >
   <main>
-     <article class="prose prose-lg max-w-none mx-auto dark:prose-invert pt-12 pb-8">
+    <nav class="text-sm mb-4 text-gray-600 dark:text-gray-400">
+  <span>Home</span> {" > "}
+  <span>{post.data.category}</span> {" > "}
+  <span class="text-gray-800 dark:text-gray-200">{post.data.title}</span>
+</nav>
+
+
+    <article class="prose prose-lg max-w-none mx-auto dark:prose-invert pt-12 pb-8">
+
 
       <div class="prose-h1 text-center">
-        <h1><a
-          href={Astro.url.href}
-          aria-label={`Permalink to: ${post.data.title}`}
-          class="text-blue-600 hover:underline focus:outline-none focus:ring-2 focus:ring-blue-400"
-        >
-          {post.data.title}
-        </a>
-      </h1>
-      <p class="mt-2 text-sm text-gray-500 dark:text-gray-400">
-        Published on <FormattedDate date={post.data.pubDate} />
-      </p>
+        <h1>
+          <a
+            href={Astro.url.href}
+            aria-label={`Permalink to: ${post.data.title}`}
+            class="text-blue-600 hover:underline focus:outline-none focus:ring-2 focus:ring-blue-400"
+          >
+            {post.data.title}
+          </a>
+        </h1>
+        {/* === Date + Author === */}
+        <p class="mt-2 text-sm text-gray-500 dark:text-gray-400">
+          <FormattedDate date={post.data.pubDate} /> · {post.data.author}
+        </p>
       </div>
 
       {post.data.cover && post.data.coverAlt && (
@@ -76,26 +81,24 @@ const resolve = (path: string): string => new URL(path, base).href;
         <Content />
       </div>
 
-      {/* 
-      <div class="prose-a:no-underline mt-4">
-        {post.data.tags?.map((tag) => (
-          <span class="mb-2 mr-2 inline-block rounded-full bg-neutral-200 px-3 py-1 text-sm hover:bg-neutral-500 dark:bg-neutral-600">
-            <a href={`/tags/${tag}/1/`}>{tag}</a>
-          </span>
-        ))}
-      </div>
+      {/* === Tags (text only) === */}
+{post.data.tags && (
+  <div class="mt-6 flex flex-wrap gap-2">
+    {post.data.tags.map((tag) => (
+      <span
+        class="inline-block rounded-full bg-neutral-200 px-3 py-1 text-sm dark:bg-neutral-600"
+      >
+        #{tag}
+      </span>
+    ))}
+  </div>
+)}
 
-      <div class="flex justify-between mt-4">
-        <small>
-          Publish on <FormattedDate date={post.data.pubDate} />，Update on{" "}
-          <FormattedDate date={new Date().toISOString()} />
-        </small>
-      </div>
-      */} 
     </article>
 
+    {/* === Prev/Next Navigation === */}
     <div class="max-w-4xl mx-auto px-3 sm:px-6 lg:px-8">
-          <div class="mt-6 mb-12 grid gap-4 md:grid-cols-2">
+      <div class="mt-6 mb-12 grid gap-4 md:grid-cols-2">
         {post.prevPost && (
           <a
             href={resolve(`/${post.prevPost.slug}/`)}
@@ -103,7 +106,7 @@ const resolve = (path: string): string => new URL(path, base).href;
             aria-label={`Go to: ${post.prevPost.title}`}
           >
             <h4 class="text-lg font-semibold text-gray-800 dark:text-white">
-              {post.prevPost.title}
+              ← {post.prevPost.title}
             </h4>
           </a>
         )}
@@ -115,20 +118,21 @@ const resolve = (path: string): string => new URL(path, base).href;
             aria-label={`Go to: ${post.nextPost.title}`}
           >
             <h4 class="text-lg font-semibold text-gray-800 dark:text-white">
-              {post.nextPost.title}
+              {post.nextPost.title} →
             </h4>
           </a>
         )}
       </div>
     </div>
 
-    {/* 
-    <div class="mt-8">
-      <RelatedPostsCard
-        currentCategory={post.data.category?.[0]}
-        currentSlug={post.slug}
-      />
-    </div>
-    */}
+    {/* Related posts by category */}
+    {post.data.category && (
+      <div class="mt-8">
+        <RelatedPostsCard
+          currentCategory={post.data.category}
+          currentSlug={post.slug}
+        />
+      </div>
+    )}
   </main>
 </Layout>

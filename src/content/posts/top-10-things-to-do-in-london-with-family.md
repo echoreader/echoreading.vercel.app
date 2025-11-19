@@ -2,6 +2,11 @@
 title: Top 10 Things to do in London with Family
 description: "Planning your family trip to London? Check out the top 10 fun, kid-friendly things to do. Discover the best spots click to explore now!"
 pubDate: 2025-10-29
+category:
+  - electricity
+tags:
+  - environment 
+  - sustainability 
 author: Echo Reader
 ---
  

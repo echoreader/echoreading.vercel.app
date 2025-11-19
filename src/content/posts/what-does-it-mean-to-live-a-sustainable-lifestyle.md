@@ -2,6 +2,11 @@
 title: What does it Mean to Live a Sustainable Lifestyle
 description: "Curious about sustainable living? Dive into our guide to learn how small changes can lead to a healthier planet and a more fulfilling life."
 pubDate: 2025-11-10
+category:
+  - electricity
+tags:
+  - environment 
+  - sustainability 
 author: Echo Reader
 ---
 

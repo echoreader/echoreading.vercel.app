@@ -1,0 +1,60 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "@layouts/Layout.astro";
+
+export async function getStaticPaths() {
+  const allPosts = await getCollection("posts");
+  allPosts.sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime());
+
+  const postsPerPage = 10;
+  const totalPages = Math.ceil(allPosts.length / postsPerPage);
+
+  return Array.from({ length: totalPages }, (_, i) => {
+    const page = i + 1;
+    const start = i * postsPerPage;
+    const end = start + postsPerPage;
+
+    return {
+      params: { page: page.toString() },
+      props: {
+        posts: allPosts.slice(start, end),
+        currentPage: page,
+        totalPages,
+      },
+    };
+  });
+}
+
+const { posts, currentPage, totalPages } = Astro.props;
+---
+
+<Layout title="Blog" description="All posts">
+  <section class="flex flex-col gap-6 mb-12 pt-12">
+    <h1 class="text-2xl font-bold mb-6">Blog Page {currentPage}</h1>
+    {posts.map(post => (
+      <article class="rounded-lg border border-solid border-gray-300 p-4 shadow-sm">
+  <h2 class="text-3xl font-semibold mb-1">
+    <a href={`/${post.slug || post.id}/`} class="no-underline text-blue-700 hover:text-blue-500">
+      {post.data.title}
+    </a>
+  </h2>
+  <p class="text-sm text-gray-500 mb-2">
+    {new Date(post.data.pubDate).toLocaleDateString(undefined, {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    })}
+  </p>
+  {post.data.description && (
+    <p class="text-sm text-gray-700">{post.data.description}</p>
+  )}
+</article>
+
+    ))}
+  </section>
+
+  <nav class="flex gap-2">
+    {currentPage > 1 && <a href={`/blog/${currentPage - 1}/`}>← Prev</a>}
+    {currentPage < totalPages && <a href={`/blog/${currentPage + 1}/`}>Next →</a>}
+  </nav>
+</Layout>

@@ -2,6 +2,11 @@
 title: is Public Transportation Better For The Environment
 description: "Is public transportation really greener? Discover how buses, trains & shared rides help the planet. Reduce emissions—make the switch today!"
 pubDate: 2025-11-03
+category:
+  - electricity
+tags:
+  - environment 
+  - sustainability 
 author: Echo Reader
 ---
 

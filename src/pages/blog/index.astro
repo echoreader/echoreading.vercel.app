@@ -3,26 +3,21 @@ import { getCollection } from "astro:content";
 import Layout from "@layouts/Layout.astro";
 
 const allPosts = await getCollection("posts");
+allPosts.sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime());
 
-allPosts.sort((a, b) => {
-  const timeA = new Date(a.data.pubDate).getTime();
-  const timeB = new Date(b.data.pubDate).getTime();
-  return timeB - timeA;
-});
-
-const postsPerPage = 15;
+const postsPerPage = 10;
 const firstPagePosts = allPosts.slice(0, postsPerPage);
+const totalPages = Math.ceil(allPosts.length / postsPerPage);
 
 const type = "blogList";
-
 const isDev = import.meta.env.DEV;
-const base = isDev ? 'http://localhost:4321' : Astro.site?.href ?? 'https://wildgreen.blog';
+const base = isDev ? "http://localhost:4321" : Astro.site?.href ?? "https://wildgreen.blog";
 const resolve = (path: string): string => new URL(path, base).href;
 ---
 
 <Layout
   title="WildGreen Articles — Eco Travel Guides, Green Living Tips"
-  description="Browse WildGreen’s curated articles on mindful travel, climate awareness, and sustainable living. From destination tips to eco-friendly habits."
+  description="Browse WildGreen’s curated articles on mindful travel, climate awareness, and sustainable living."
   type={type}
   url={resolve(Astro.url.pathname)}
   itemList={firstPagePosts.map(post => ({
@@ -34,27 +29,21 @@ const resolve = (path: string): string => new URL(path, base).href;
     <h1 class="text-2xl font-bold mb-6">Blog</h1>
     {firstPagePosts.map(post => (
       <article class="rounded-lg border border-solid border-gray-300 p-4 shadow-sm">
-        <!-- Judul -->
         <h2 class="text-3xl font-semibold mb-1">
           <a
             href={resolve(`/${post.slug || post.id}/`)}
             class="no-underline text-blue-700 hover:text-blue-500"
-            rel="internal"
           >
             {post.data.title}
           </a>
         </h2>
-
-        <!-- Date -->
         <p class="text-sm text-gray-500 mb-2">
           {new Date(post.data.pubDate).toLocaleDateString(undefined, {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric'
+            year: "numeric",
+            month: "long",
+            day: "numeric",
           })}
         </p>
-
-        <!-- Description -->
         {post.data.description && (
           <p class="text-sm text-gray-700">{post.data.description}</p>
         )}
@@ -62,4 +51,23 @@ const resolve = (path: string): string => new URL(path, base).href;
     ))}
   </section>
 
+  <!-- Pagination nav -->
+  <nav class="flex justify-center gap-2 mt-8">
+    {Array.from({ length: totalPages }).map((_, i) => {
+      const page = i + 1;
+      const isActive = page === 1;
+      return (
+        <a
+          href={page === 1 ? "/blog/" : `/blog/${page}/`}
+          class={`px-3 py-1 rounded ${
+            isActive
+              ? "bg-blue-600 text-white font-semibold"
+              : "bg-gray-100 text-gray-800 hover:bg-gray-200"
+          }`}
+        >
+          {page}
+        </a>
+      );
+    })}
+  </nav>
 </Layout>
