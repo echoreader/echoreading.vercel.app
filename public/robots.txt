@@ -3,6 +3,7 @@ Disallow: /404/
 Disallow: /assets/
 Disallow: /drafts/
 Disallow: /rss.xml
+Disallow: /_astro/
 Allow: /
 
 Sitemap: https://wildgreen.blog/sitemap-index.xml
