@@ -47,17 +47,13 @@ const resolve = (path: string): string => new URL(path, base).href;
   articleBody={post.data.description}
 >
   <main>
-    <nav class="text-sm mb-4 text-gray-600 dark:text-gray-400">
-  <span>Home</span> {" > "}
-  <span>{post.data.category}</span> {" > "}
-  <span class="text-gray-800 dark:text-gray-200">{post.data.title}</span>
-</nav>
-
-
+    <nav class="text-sm mt-4 mb-2 text-gray-600 dark:text-gray-400">
+      <span>Home</span> {" > "}
+      <span>{post.data.category}</span> {" > "}
+      <span class="text-gray-800 dark:text-gray-200">{post.data.title}</span>
+    </nav>
     <article class="prose prose-lg max-w-none mx-auto dark:prose-invert pt-12 pb-8">
-
-
-      <div class="prose-h1 text-center">
+      <div class="prose-h1 text-left">
         <h1>
           <a
             href={Astro.url.href}
@@ -82,18 +78,17 @@ const resolve = (path: string): string => new URL(path, base).href;
       </div>
 
       {/* === Tags (text only) === */}
-{post.data.tags && (
-  <div class="mt-6 flex flex-wrap gap-2">
-    {post.data.tags.map((tag) => (
-      <span
-        class="inline-block rounded-full bg-neutral-200 px-3 py-1 text-sm dark:bg-neutral-600"
-      >
-        #{tag}
-      </span>
-    ))}
-  </div>
-)}
-
+      {post.data.tags && (
+        <div class="mt-6 flex flex-wrap gap-2">
+          {post.data.tags.map((tag) => (
+            <span
+              class="inline-block rounded-full bg-neutral-200 px-3 py-1 text-sm dark:bg-neutral-600"
+            >
+              #{tag}
+            </span>
+          ))}
+        </div>
+      )}
     </article>
 
     {/* === Prev/Next Navigation === */}
@@ -106,7 +101,7 @@ const resolve = (path: string): string => new URL(path, base).href;
             aria-label={`Go to: ${post.prevPost.title}`}
           >
             <h4 class="text-lg font-semibold text-gray-800 dark:text-white">
-              ← {post.prevPost.title}
+              {post.prevPost.title}
             </h4>
           </a>
         )}
@@ -118,7 +113,7 @@ const resolve = (path: string): string => new URL(path, base).href;
             aria-label={`Go to: ${post.nextPost.title}`}
           >
             <h4 class="text-lg font-semibold text-gray-800 dark:text-white">
-              {post.nextPost.title} →
+              {post.nextPost.title}
             </h4>
           </a>
         )}
