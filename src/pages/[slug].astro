@@ -4,6 +4,7 @@ import Layout from "@layouts/Layout.astro";
 import RelatedPostsCard from "@components/RelatedPostsCard.astro";
 import FormattedDate from "@components/FormattedDate.astro";
 import OptimizedCover from "@components/OptimizedPicture.astro";
+import { extractFaqs } from "../utils/extractFaqs";
 
 export async function getStaticPaths() {
   const posts = await getCollection("posts");
@@ -25,7 +26,6 @@ export async function getStaticPaths() {
   });
 }
 
-const type = "blogPost";
 const post = Astro.props;
 const { Content } = await post.render();
 const safeWordCount = typeof (post.data as any).wordCount === "number" ? (post.data as any).wordCount : 500;
@@ -33,19 +33,28 @@ const safeWordCount = typeof (post.data as any).wordCount === "number" ? (post.d
 const isDev = import.meta.env.DEV;
 const base = isDev ? 'http://localhost:4321' : Astro.site?.href ?? 'https://wildgreen.blog';
 const resolve = (path: string): string => new URL(path, base).href;
+const html = post.body; // body raw dari markdown
+const faqs = extractFaqs(html);
 ---
 
 <Layout
   title={post.data.title}
   description={post.data.description}
-  type={type}
+  type="post"
   url={Astro.url.href}
   featuredImage={post.data.cover}
   datePublished={new Date(post.data.pubDate).toISOString()}
   dateModified={new Date().toISOString()}
   wordCount={safeWordCount}
   articleBody={post.data.description}
+  itemList={[
+    { name: "Home", url: base },
+    { name: post.data.category || "Blog", url: resolve("/blog/") },
+    { name: post.data.title, url: Astro.url.href }
+  ]}
+  faqs={faqs}
 >
+
   <main>
     <nav class="text-sm mt-4 mb-2 text-gray-600 dark:text-gray-400">
       <span>Home</span> {" > "}

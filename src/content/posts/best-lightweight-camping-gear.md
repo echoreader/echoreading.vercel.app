@@ -125,20 +125,30 @@ My **minimalist camping** wardrobe (worn + packed):
 
 ## FAQ
 
-**Q: Can I go ultralight on a budget?**  
-A: Yes **Durston X-Mid** ($240) + **Costco down quilt** ($30) + DIY alcohol stove.
+<details>
+  <summary>Why is reducing weight so critical for camping and backpacking?</summary>
+  <p>Reducing weight is critical because it directly impacts your endurance and enjoyment, especially when backpacking long distances. Lighter gear means less strain on your joints, less fatigue, and a reduced risk of injury, allowing you to cover more distance comfortably.</p>
+</details>
 
-**Q: What about bear country?**  
-A: Add a BV500 canister (41 oz). Still under 12 lbs total.
+<details>
+  <summary>What are the three core items where I should prioritize weight reduction?</summary>
+  <p>You should focus on the "Big Three": 1) **Your Tent/Shelter** (look for dyneema or ultra-light silnylon materials), 2) **Your Sleeping Bag** (prioritize high-quality down over synthetic fill), and 3) **Your Backpack** itself (ensure the pack frame is both light and sized correctly).</p>
+</details>
 
-**Q: Sleeping quilt in winter?**  
-A: Pair with a 0 °F bag or enclosed **sleeping bag** quilts shine in 20–50 °F.
+<details>
+  <summary>Does lightweight gear automatically mean sacrificing durability?</summary>
+  <p>Not necessarily, but it requires more careful handling. Modern lightweight gear uses advanced materials (like ripstop nylon or titanium) that offer a high strength-to-weight ratio. However, these materials can be thinner and more susceptible to punctures or abrasive damage than heavy-duty conventional gear.</p>
+</details>
 
-**Q: Best place to buy in the US?**  
-A: REI (returns), Garage Grown Gear (cottage brands), Amazon (budget titanium).
+<details>
+  <summary>What is a good way to test if my pack is too heavy?</summary>
+  <p>A general rule of thumb for multi-day backpacking is that your base weight (total pack weight excluding consumables like food and water) should be under **10–15 pounds (4.5–6.8 kg)** to be considered "lightweight." If your total pack weight exceeds 20% of your body weight, it is likely too heavy.</p>
+</details>
 
-**Q: How light is too light?**  
-A: If you’re cold, wet, or injured, you went too far. Comfort > grams.
+<details>
+  <summary>What are the best lightweight alternatives to a traditional camping stove?</summary>
+  <p>The best lightweight alternatives include **alcohol stoves** (simple, light, silent) or **isobutane canister stoves** with titanium pots. Both systems offer excellent fuel efficiency and weigh significantly less than heavy liquid-fuel stoves.</p>
+</details>
 
 ## Conclusion
 

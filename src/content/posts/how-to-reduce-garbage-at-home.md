@@ -125,19 +125,29 @@ You don’t need to fit a year in a jar to make a difference. Even cutting one b
 
 ## Frequently Asked Questions
 
-**How long does it take to see real results in waste reduction?**  
-I noticed a difference in two weeks. Significant change (50% less) took about three months of consistent swaps.
+<details>
+  <summary>What is the 'Golden Rule' or principle for reducing household waste?</summary>
+  <p>The golden rule is the **"5 Rs" hierarchy**, prioritizing: **Refuse** (reject items you don't need), **Reduce** (minimize consumption), **Reuse** (find new purposes for items), **Recycle** (the last resort for unavoidable waste), and **Rot** (compost organic matter).</p>
+</details>
 
-**What if my city doesn’t recycle everything?**  
-Focus on **refuse, reduce, reuse, rot** first those work everywhere. Use TerraCycle free programs for hard-to-recycle items.
+<details>
+  <summary>What is the easiest and quickest way to immediately reduce my garbage output?</summary>
+  <p>The easiest and quickest way is to **start composting organic waste**. Food scraps, yard clippings, and coffee grounds make up a large percentage of household trash. Composting diverts this heavy, wet material from landfills and creates nutrient-rich soil.</p>
+</details>
 
-**Isn’t composting smelly and buggy?**  
-Not if you do it right. Bokashi and Lomi have zero smell. Traditional outdoor bins only smell if you add meat/dairy (I don’t).
+<details>
+  <summary>How can I reduce packaging waste when grocery shopping?</summary>
+  <p>Start by **buying in bulk** (using reusable containers for dry goods like grains and nuts), choosing products with minimal or recyclable packaging, and always bringing your own **reusable bags** instead of accepting plastic or paper bags.</p>
+</details>
 
-**How do you handle takeout and birthdays without creating trash?**  
-We bring our own containers to restaurants (most say yes!), and do experience gifts or secondhand toys. Last birthday: zoo membership + thrift-store Legos = zero waste.
+<details>
+  <summary>What is the difference between "Recycling" and "Upcycling"?</summary>
+  <p>**Recycling** involves processing used materials into new, often lower-quality products (like turning plastic bottles into carpet fiber). **Upcycling** involves creatively reusing old items or waste materials to create a product of higher quality or environmental value (like turning glass jars into home decor).</p>
+</details>
 
-**Is zero waste home actually cheaper?**  
-For us, yes dramatically. We spend way less on packaged food, single-use items, and cleaning products.
+<details>
+  <summary>Does reducing waste actually save me money?</summary>
+  <p>Absolutely. The principles of **Reduce** and **Refuse** inherently save money because you are buying less. You save on groceries by reducing food waste, save on disposable items by switching to reusable versions, and often save on packaging fees when buying bulk items.</p>
+</details>
 
 Pick one thing from this guide and try it tomorrow. Take a photo of your trash can in 30 days and tag me I want to celebrate with you. 🌿

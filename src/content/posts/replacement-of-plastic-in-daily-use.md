@@ -161,26 +161,31 @@ These choices reduce plastic waste during flights, road trips, and hotel stays.
 
 ## **FAQ**
 
-### **Why should I replace plastic in daily use**
+<details>
+  <summary>What is the most common single-use plastic I should replace first?</summary>
+  <p>The easiest and most impactful switch is replacing **single-use plastic shopping bags and water bottles**. Always carry a reusable cloth shopping bag and invest in a durable stainless steel or glass water bottle. These are simple habits that cut down on massive daily waste.</p>
+</details>
 
-Because plastic affects the environment, our oceans, and our health. Switching to sustainable solutions creates long term benefits.
+<details>
+  <summary>What are the best non-plastic materials for food storage?</summary>
+  <p>For kitchen storage, the best materials are **Glass** (it's inert, infinitely recyclable, and won't leach chemicals), **Stainless Steel** (durable for lunchboxes and containers), and **Food-Grade Silicone** (flexible, reusable bags and stretchy lids to replace cling wrap).</p>
+</details>
 
-### **What is the easiest plastic alternative for beginners**
+<details>
+  <summary>How can I eliminate plastic from my bathroom routine?</summary>
+  <p>Start by switching from liquid products in plastic bottles to **solid bars** (shampoo, conditioner, and body soap). Also, replace your plastic toothbrush with a **Bamboo toothbrush** and use refillable dispensers for other items like mouthwash or lotion.</p>
+</details>
 
-Cloth bags, stainless steel water bottles, and glass containers are the simplest swaps.
+<details>
+  <summary>What is a good alternative for plastic cling wrap/Saran Wrap?</summary>
+  <p>The best alternatives are **Beeswax Wraps** (made from cotton coated with wax, resin, and oil; they are reusable, washable, and compostable) or reusable **Silicone Food Covers** that stretch over bowls and cut produce.</p>
+</details>
 
-### **Is switching to eco friendly products expensive**
+<details>
+  <summary>Does switching to reusable products actually save money in the long run?</summary>
+  <p>Yes. While the initial investment in high-quality reusable items (like stainless steel razors, coffee cups, or cloth towels) may be higher, they eliminate the need for constant repurchase of disposable plastic items, leading to **significant cost savings** over time.</p>
+</details>
 
-Not always. Many items last longer than plastic, which saves money over time.
-
-### **How do I start zero waste living**
-
-I began by replacing one item at a time, focusing on daily habits like shopping and cooking.
-
-### **Are biodegradable materials really safer**
-
-They break down naturally and reduce the strain on landfills and oceans.
-
-# **Conclusion**
+## **Conclusion**
 
 Choosing **plastic alternatives** for my daily use transformed how I live and how I think about waste. By using **reusable items**, exploring **biodegradable materials**, and supporting **compostable packaging**, I made progress toward a cleaner and more mindful lifestyle. Every **green choice** I make helps reduce plastic waste and supports long term **sustainable living**. Even the smallest swap creates a ripple effect that benefits the environment and future generations.

@@ -160,6 +160,33 @@ But it’s not just about swapping your car for a bus once a month. It’s about
 
 We’re not just reducing emissions we’re _shaping the future_ of our planet.
 
+## FAQ
+
+<details>
+  <summary>How much lower are emissions from public transit compared to private cars?</summary>
+  <p>Public transportation dramatically lowers emissions per passenger. For instance, replacing a solo car commute with public transport can reduce an individual's annual CO2 emissions by **4,800 pounds** (over 2.2 metric tons). Trains and electric buses are generally the lowest carbon options, especially when running at high capacity.</p>
+</details>
+
+<details>
+  <summary>What is the main reason public transit is considered "greener"?</summary>
+  <p>The main reason is **efficiency through shared ridership**. A bus or train carrying many people uses significantly less fuel and generates far less pollution *per passenger-mile* than the same number of people driving in separate single-occupancy vehicles. This reduces the total energy and carbon output for a given journey.</p>
+</details>
+
+<details>
+  <summary>Are trains always more environmentally friendly than buses?</summary>
+  <p>Generally, **yes**, especially for medium to long distances. Trains, particularly electric rail, often have the lowest carbon emissions per passenger-kilometer because they can carry hundreds of people and use a cleaner electricity grid source. However, an empty train can be less efficient than a full bus.</p>
+</details>
+
+<details>
+  <summary>Besides CO2, what other environmental benefit does public transit offer?</summary>
+  <p>Public transit significantly reduces **urban air pollution** (like nitrogen oxides and particulate matter) by taking cars off the road. Less traffic congestion also means less idling, improving air quality in dense city centers, which directly benefits public health.</p>
+</details>
+
+<details>
+  <summary>Does public transportation help save energy resources?</summary>
+  <p>Yes. By shifting millions of individual trips to shared, efficient vehicles, public transit in the U.S. alone saves the equivalent of **4.2 billion gallons of gasoline** annually. This reduces the nation's reliance on imported petroleum and conserves finite fuel resources.</p>
+</details>
+
 ### 💬 Your Turn
 
 Do you use public transportation regularly? Thinking of making the switch? Share your experiences I’d love to hear how you're doing your part to ride greener! 🚉💚

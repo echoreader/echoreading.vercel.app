@@ -6,7 +6,9 @@ interface Props {
   type?: string;
   url?: string;
 }
+
 import Schema from "@components/Schema.astro";
+import SchemaFaq from "@components/SchemaFaq.astro";
 
 const isDev = import.meta.env.DEV;
 const base = isDev ? 'http://localhost:4321' : Astro.site?.href ?? 'https://wildgreen.blog';
@@ -50,7 +52,17 @@ const { title, description, image = "/blog-placeholder-1.avif", type, url } = As
 <meta name="twitter:image" content={new URL(image, Astro.url)} />
 
 <!-- 6. Structured Data -->
-<Schema title={title} description={description} url={url} type={type} />
+<Schema
+  title={title}
+  description={description}
+  url={canonicalUrl}
+  type={type}
+  featuredImage={image}
+  datePublished={Astro.props.datePublished}
+  dateModified={Astro.props.dateModified}
+  itemList={Astro.props.itemList}
+/>
+<SchemaFaq faqs={Astro.props.faqs} />
 
 <!-- 7. Global Scripts (moved here from BaseLayout) -->
 <script

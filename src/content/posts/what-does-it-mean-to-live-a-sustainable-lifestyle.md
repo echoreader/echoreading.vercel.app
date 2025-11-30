@@ -126,20 +126,30 @@ U.S. households average 300 gallons/day. My cuts:
 
 ## FAQ
 
-**Q: Is sustainable living expensive?**  
-A: Upfront yes, long-term no. My heat pump paid back in 4 years; bulk beans cost 1/3 of canned.
+<details>
+  <summary>What is the core definition of a Sustainable Lifestyle?</summary>
+  <p>A Sustainable Lifestyle is a way of living that seeks to reduce an individual's or society's use of the Earth's natural resources, and personal resources. The goal is to meet our current needs without compromising the ability of future generations to meet their own needs.</p>
+</details>
 
-**Q: Can renters go green?**  
-A: 100 %. LEDs, curtains for insulation, balcony gardens landlord-approved.
+<details>
+  <summary>What are the "Three Pillars" often associated with sustainability?</summary>
+  <p>The three traditional pillars are **Environmental** (reducing waste and pollution), **Social** (supporting fair trade and human rights), and **Economic** (ensuring economic viability and efficiency). True sustainability requires balancing all three.</p>
+</details>
 
-**Q: What if I travel for work?**  
-A: Offset flights (I use TerraPass, $10/ton), pack a kit (bamboo utensils, refillable bottle).
+<details>
+  <summary>What is the first and easiest step a beginner can take toward a sustainable lifestyle?</summary>
+  <p>The easiest first step is to focus on **consumption and waste**. This means adopting reusable items (bags, water bottles, coffee cups) and consciously reducing the amount of meat you consume, as meat production has a high environmental footprint.</p>
+</details>
 
-**Q: Zero waste with kids possible?**  
-A: My friend with toddlers uses cloth diapers + bulk snacks. Start with one swap.
+<details>
+  <summary>Does a sustainable lifestyle have to be expensive?</summary>
+  <p>No, often it is cheaper in the long run. While initial purchases like solar panels or reusable products cost more upfront, the core principles of sustainability—**consuming less, repairing items, and reducing waste**—lead to significant savings on bills and purchases over time.</p>
+</details>
 
-**Q: Best U.S. resources?**  
-A: EPA’s Sustainable Marketplace, Buy Nothing groups, 350.org local chapters.
+<details>
+  <summary>How can my transportation choices impact my sustainable living efforts?</summary>
+  <p>Transportation is one of the largest sources of personal emissions. Choosing to **walk, cycle, use public transport**, or switching to an electric or hybrid vehicle are high-impact ways to drastically reduce your carbon footprint and live more sustainably.</p>
+</details>
 
 ## Conclusion
 
