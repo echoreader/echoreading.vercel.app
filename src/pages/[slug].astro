@@ -6,6 +6,17 @@ import FormattedDate from "@components/FormattedDate.astro";
 import OptimizedCover from "@components/OptimizedPicture.astro";
 import { extractFaqs } from "../utils/extractFaqs";
 
+// Definisi tipe untuk itemList dan FAQ agar konsisten
+interface Item {
+  title: string;
+  url: string;
+}
+
+interface Faq {
+  question: string;
+  answer: string;
+}
+
 export async function getStaticPaths() {
   const posts = await getCollection("posts");
 
@@ -28,13 +39,18 @@ export async function getStaticPaths() {
 
 const post = Astro.props;
 const { Content } = await post.render();
-const safeWordCount = typeof (post.data as any).wordCount === "number" ? (post.data as any).wordCount : 500;
+const safeWordCount =
+  typeof (post.data as any).wordCount === "number"
+    ? (post.data as any).wordCount
+    : 500;
 
 const isDev = import.meta.env.DEV;
-const base = isDev ? 'http://localhost:4321' : Astro.site?.href ?? 'https://wildgreen.blog';
+const base = isDev ? "http://localhost:4321" : Astro.site?.href ?? "https://wildgreen.blog";
 const resolve = (path: string): string => new URL(path, base).href;
-const html = post.body; // body raw dari markdown
-const faqs = extractFaqs(html);
+
+// Ambil body raw dari markdown, lalu ekstrak FAQ
+const html = post.body;
+const faqs: Faq[] = extractFaqs(html);
 ---
 
 <Layout
@@ -48,19 +64,19 @@ const faqs = extractFaqs(html);
   wordCount={safeWordCount}
   articleBody={post.data.description}
   itemList={[
-    { name: "Home", url: base },
-    { name: post.data.category || "Blog", url: resolve("/blog/") },
-    { name: post.data.title, url: Astro.url.href }
+    { title: "Home", url: base },
+    { title: post.data.category || "Blog", url: resolve("/blog/") },
+    { title: post.data.title, url: Astro.url.href }
   ]}
   faqs={faqs}
 >
-
   <main>
     <nav class="text-sm mt-4 mb-2 text-gray-600 dark:text-gray-400">
       <span>Home</span> {" > "}
       <span>{post.data.category}</span> {" > "}
       <span class="text-gray-800 dark:text-gray-200">{post.data.title}</span>
     </nav>
+
     <article class="prose prose-lg max-w-none mx-auto dark:prose-invert pt-12 pb-8">
       <div class="prose-h1 text-left">
         <h1>

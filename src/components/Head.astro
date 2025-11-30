@@ -1,10 +1,24 @@
 ---
+interface Item {
+  title: string;
+  url: string;
+}
+
+interface Faq {
+  question: string;
+  answer: string;
+}
+
 interface Props {
   title: string;
   description: string;
   image?: string;
   type?: string;
   url?: string;
+  datePublished?: string;
+  dateModified?: string;
+  itemList?: Item[];
+  faqs?: Faq[];
 }
 
 import Schema from "@components/Schema.astro";
@@ -15,7 +29,17 @@ const base = isDev ? 'http://localhost:4321' : Astro.site?.href ?? 'https://wild
 const resolve = (path: string): string => new URL(path, base).href;
 const canonicalUrl = resolve(Astro.url.pathname);
 
-const { title, description, image = "/blog-placeholder-1.avif", type, url } = Astro.props;
+const {
+  title,
+  description,
+  image = "/blog-placeholder-1.avif",
+  type,
+  url,
+  datePublished,
+  dateModified,
+  itemList,
+  faqs
+} = Astro.props;
 ---
 
 <!-- 1. Global Metadata -->
@@ -58,11 +82,11 @@ const { title, description, image = "/blog-placeholder-1.avif", type, url } = As
   url={canonicalUrl}
   type={type}
   featuredImage={image}
-  datePublished={Astro.props.datePublished}
-  dateModified={Astro.props.dateModified}
-  itemList={Astro.props.itemList}
+  datePublished={datePublished}
+  dateModified={dateModified}
+  itemList={itemList}
 />
-<SchemaFaq faqs={Astro.props.faqs} />
+<SchemaFaq faqs={faqs} />
 
 <!-- 7. Global Scripts (moved here from BaseLayout) -->
 <script
