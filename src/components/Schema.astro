@@ -1,4 +1,22 @@
 ---
+interface Item {
+  title: string;
+  url: string;
+}
+
+interface Props {
+  title: string;
+  description: string;
+  url?: string;
+  type?: string;
+  featuredImage?: string;
+  datePublished?: string;
+  dateModified?: string;
+  wordCount?: number;
+  articleBody?: string;
+  itemList?: Item[];
+}
+
 const {
   title,
   description,
@@ -86,10 +104,10 @@ const {
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
-      itemListElement: itemList.map((item, i) => ({
+      itemListElement: itemList.map((item: Item, i: number) => ({   // ✅ item & i bertipe jelas
         "@type": "ListItem",
         position: i + 1,
-        name: item.name,
+        name: item.title,   // ✅ konsisten pakai title
         item: { "@id": item.url }
       }))
     })} />
