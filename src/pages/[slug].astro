@@ -65,11 +65,17 @@ const faqs: Faq[] = extractFaqs(html);
   articleBody={post.data.description}
   itemList={[
     { title: "Home", url: base },
-    { title: post.data.category || "Blog", url: resolve("/blog/") },
+    {
+      title: Array.isArray(post.data.category)
+        ? post.data.category[0] || "Blog"
+        : post.data.category || "Blog",
+      url: resolve("/blog/")
+    },
     { title: post.data.title, url: Astro.url.href }
   ]}
   faqs={faqs}
 >
+
   <main>
     <nav class="text-sm mt-4 mb-2 text-gray-600 dark:text-gray-400">
       <span>Home</span> {" > "}

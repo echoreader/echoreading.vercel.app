@@ -86,8 +86,9 @@ const {
       "@id": url,
       headline: title,
       description,
-      datePublished: new Date(datePublished).toISOString(),
-      dateModified: new Date(dateModified).toISOString(),
+      // ✅ aman: hanya panggil new Date kalau ada nilainya
+      datePublished: datePublished ? new Date(datePublished).toISOString() : undefined,
+      dateModified: dateModified ? new Date(dateModified).toISOString() : undefined,
       author: { "@type": "Person", name: "Echo Reader" },
       publisher: {
         "@type": "Organization",
@@ -104,10 +105,10 @@ const {
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
-      itemListElement: itemList.map((item: Item, i: number) => ({   // ✅ item & i bertipe jelas
+      itemListElement: itemList.map((item: Item, i: number) => ({
         "@type": "ListItem",
         position: i + 1,
-        name: item.title,   // ✅ konsisten pakai title
+        name: item.title,
         item: { "@id": item.url }
       }))
     })} />
