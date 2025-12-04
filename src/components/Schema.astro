@@ -86,7 +86,6 @@ const {
       "@id": url,
       headline: title,
       description,
-      // ✅ aman: hanya panggil new Date kalau ada nilainya
       datePublished: datePublished ? new Date(datePublished).toISOString() : undefined,
       dateModified: dateModified ? new Date(dateModified).toISOString() : undefined,
       author: { "@type": "Person", name: "Echo Reader" },

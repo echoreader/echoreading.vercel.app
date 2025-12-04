@@ -1,4 +1,3 @@
-// unocss.config.ts
 import { defineConfig, presetUno, presetTypography } from 'unocss'
 
 export default defineConfig({

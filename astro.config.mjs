@@ -4,13 +4,11 @@ import remarkLinkHelper from "./src/utils/remark-link-helper.js";
 import { siteUrl } from "./src/utils/site.js";
 
 import mdx from "@astrojs/mdx";
-import sitemap from "@astrojs/sitemap";
 import partytown from "@astrojs/partytown";
 import pagefind from "astro-pagefind";
 import icon from "astro-icon";
 import UnoCSS from 'unocss/astro'
 
-//echoreading.vercel.app > wildgreen.blog 
 export default defineConfig({
   site: "https://wildgreen.blog",
   trailingSlash: "always",
@@ -18,12 +16,9 @@ export default defineConfig({
   markdown: {
     smartypants: false,
     remarkPlugins: [remarkModifiedTime,remarkLinkHelper({ siteUrl }),],
-    // 🔥 Ini yang bikin <a> dari plugin bisa dirender
-  // Tanpa ini, node type "html" akan diabaikan
-  // dan tampil sebagai teks literal
-  rehypePlugins: [],
-  syntaxHighlight: false,
-  dangerouslyAllowHtml: true,
+    rehypePlugins: [],
+    syntaxHighlight: false,
+    dangerouslyAllowHtml: true,
   },
 
   image: {
@@ -42,14 +37,9 @@ export default defineConfig({
 
   integrations: [
     UnoCSS({
-      injectReset: true // or a path to the reset file
+      injectReset: true
     }),
     mdx(),
-    //sitemap({
-      //changefreq: 'weekly',
-      //priority: 0.7,
-      //lastmod: new Date(),
-    //}),
     pagefind(),
     partytown({
       config: {
