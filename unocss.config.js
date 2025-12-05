@@ -19,6 +19,15 @@ export default defineConfig({
     'h-16','py-6','mt-12',
     'max-w-4xl',
   ],
+  preflights: [
+    {
+      getCSS: () => `
+        html {
+          overflow-y: scroll;
+        }
+        `,
+    },
+  ],
   theme: {
     fontFamily: {
       sans: ['Inter', 'sans-serif'],
